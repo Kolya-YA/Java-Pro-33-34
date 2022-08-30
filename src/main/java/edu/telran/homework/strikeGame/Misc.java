@@ -1,6 +1,6 @@
 package edu.telran.homework.strikeGame;
 
-public class Misc {
+class Misc {
 
     static Player whoStart(Player player1, Player player2) {
         return Math.random() < 0.5 ? player1 : player2;
@@ -9,7 +9,7 @@ public class Misc {
         return String.format("%s. Health: %s. Super power: %s\n",
                 player.getName(),
                 player.getHealth(),
-                player.getSuperPow());
+                player.getBaseSuperpower());
     }
     static String endGameMsg(Player player1, Player player2) {
         StringBuilder endGameStr = new StringBuilder("\n———\n");

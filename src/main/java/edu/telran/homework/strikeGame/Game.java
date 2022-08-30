@@ -5,9 +5,8 @@ public class Game {
         Stage gameStage = new Stage("rainbow");
         Player curPlayer = Misc.whoStart(player1, player2);
 
-
         System.out.printf(
-                "Game on. %s strikes first.\n", curPlayer.getName()
+                "Game on. %s strikes first.\n\n", curPlayer.getName()
         );
 
         do {
@@ -15,14 +14,14 @@ public class Game {
             curPlayer.incrementStrikeCounter();
             if (Math.random() <= 0.4) {
                 curPlayer.incrementGoodStrikeCounter();
-                if (nextPlayer.getSuperPow() > 0) {
+                if (nextPlayer.getBaseSuperpower() > 0) {
                     nextPlayer.decrementSuperPow();
                 } else {
                     nextPlayer.looseHealth(10);
                     gameStage.setColor(curPlayer.getColor());
                 }
 
-                if (curPlayer.getGoodStrikeInRow() == 1) {
+                if (curPlayer.getGoodStrikeInRow() == curPlayer.getSuperpowersThreshold() - 1) {
                     curPlayer.incrementSuperPow();
                 } else {
                     curPlayer.incrementGoodStrikeInRow();
@@ -33,7 +32,7 @@ public class Game {
                 System.out.printf("%s failed.\n", curPlayer.getName());
             }
 
-            System.out.printf("Stage color: %s\n", gameStage.getColor());
+            System.out.printf("Stage color: %s\n", gameStage.getColor()); // ToDo Extract to separate method
             System.out.print(Misc.playerStatusMsg(curPlayer));
             System.out.print(Misc.playerStatusMsg(nextPlayer));
             System.out.println();

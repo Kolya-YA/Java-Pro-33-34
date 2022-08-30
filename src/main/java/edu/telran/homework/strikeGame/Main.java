@@ -2,8 +2,8 @@ package edu.telran.homework.strikeGame;
 
 public class Main {
     public static void main(String[] args) {
-        Player player1 = new Player("Tom", "Tom's blue");
-        Player player2 = new Player("Jerry", "Jerry's brown");
+        TriplePlayer player1 = new TriplePlayer("Tom_3", "Tom's blue");
+        FiverPlayer player2 = new FiverPlayer("Jerry_5", "Jerry's brown");
         Game.start(player1, player2);
     }
 }
