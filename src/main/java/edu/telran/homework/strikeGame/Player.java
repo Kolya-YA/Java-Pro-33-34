@@ -9,7 +9,7 @@ abstract class Player {
 
     private int health = 100;
     public int getHealth() { return health; }
-    public void looseHealth(int lostHealth) { this.health -= lostHealth; }
+    public void looseHealth() { this.health -= 10; }
 
     private int strikeCounter = 0;
     public int getStrikeCounter() { return strikeCounter; }

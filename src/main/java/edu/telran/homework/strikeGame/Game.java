@@ -17,7 +17,7 @@ public class Game {
                 if (nextPlayer.getBaseSuperpower() > 0) {
                     nextPlayer.decrementSuperPow();
                 } else {
-                    nextPlayer.looseHealth(10);
+                    nextPlayer.looseHealth();
                     gameStage.setColor(curPlayer.getColor());
                 }
 
@@ -32,10 +32,7 @@ public class Game {
                 System.out.printf("%s failed.\n", curPlayer.getName());
             }
 
-            System.out.printf("Stage color: %s\n", gameStage.getColor()); // ToDo Extract to separate method
-            System.out.print(Misc.playerStatusMsg(curPlayer));
-            System.out.print(Misc.playerStatusMsg(nextPlayer));
-            System.out.println();
+            System.out.println(Misc.endTurnMsg(gameStage, curPlayer, nextPlayer));
 
             curPlayer = nextPlayer;
         } while (player1.getHealth() > 0 && player2.getHealth() > 0);
