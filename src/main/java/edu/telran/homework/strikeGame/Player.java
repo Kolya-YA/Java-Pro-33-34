@@ -1,6 +1,6 @@
 package edu.telran.homework.strikeGame;
 
-abstract class Player {
+abstract class Player implements Kicker {
     private final String name;
     public String getName() { return name; }
 
@@ -24,14 +24,14 @@ abstract class Player {
     public void incrementGoodStrikeInRow() { this.goodStrikeInRow++; }
     public void resetGoodStrikeInRow() { this.goodStrikeInRow = 0; }
 
-    protected int baseSuperpower = 3;
-    public int getBaseSuperpower() { return baseSuperpower; }
+    protected int currentSuperpower = 3;
+    public int getCurrentSuperpower() { return currentSuperpower; }
     public void incrementSuperPow() {
-        this.baseSuperpower++;
+        this.currentSuperpower++;
         this.superPowIncrementCounter++;
         this.resetGoodStrikeInRow();
     }
-    public void decrementSuperPow() { this.baseSuperpower--; }
+    public void decrementSuperPow() { this.currentSuperpower--; }
 
     protected int superpowersThreshold = 2;
     public int getSuperpowersThreshold() { return superpowersThreshold; }

@@ -4,17 +4,17 @@ public class Game {
     static void start(Player player1, Player player2) {
         Stage gameStage = new Stage("rainbow");
         Player curPlayer = Misc.whoStart(player1, player2);
+        Player nextPlayer;
 
-        System.out.printf(
-                "Game on. %s strikes first.\n\n", curPlayer.getName()
-        );
+        System.out.printf("Game on. %s strikes first.\n\n", curPlayer.getName());
 
         do {
-            Player nextPlayer = curPlayer == player2 ? player1 : player2;
+            nextPlayer = curPlayer == player2 ? player1 : player2;
             curPlayer.incrementStrikeCounter();
-            if (Math.random() <= 0.4) {
+            if (curPlayer.takeKick()) {
+//            if (Math.random() <= 0.4) {
                 curPlayer.incrementGoodStrikeCounter();
-                if (nextPlayer.getBaseSuperpower() > 0) {
+                if (nextPlayer.getCurrentSuperpower() > 0) {
                     nextPlayer.decrementSuperPow();
                 } else {
                     nextPlayer.looseHealth();

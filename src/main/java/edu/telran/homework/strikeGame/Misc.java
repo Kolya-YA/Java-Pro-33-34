@@ -10,7 +10,7 @@ class Misc {
         return String.format("%s. Health: %s. Super power: %s\n",
                 player.getName(),
                 player.getHealth(),
-                player.getBaseSuperpower());
+                player.getCurrentSuperpower());
     }
 
     static String endTurnMsg(Stage gameStage, Player curPlayer, Player nextPlayer) {

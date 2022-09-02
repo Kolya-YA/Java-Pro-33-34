@@ -11,9 +11,9 @@ class FiverPlayer extends Player {
 
     FiverPlayer(String name, String color) {
         super(name, color);
-        super.baseSuperpower = 5;
+        super.currentSuperpower = 5;
         super.superpowersThreshold = 3;
     }
-    private int baseSuperpower = 5;
+//    private int baseSuperpower = 5;
 }
 
